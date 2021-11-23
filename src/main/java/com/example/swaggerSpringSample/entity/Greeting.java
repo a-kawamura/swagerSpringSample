@@ -1,4 +1,4 @@
-package com.example.swaggerSpringSample;
+package com.example.swaggerSpringSample.entity;
 
 
 import lombok.EqualsAndHashCode;

@@ -1,20 +1,26 @@
-package com.example.swaggerSpringSample;
+package com.example.swaggerSpringSample.config;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @Configuration
-@EnableSwagger2
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class SpringFoxConfig {
 
     /**
-     * http://localhost:8080/swagger-ui/ でドキュメントにアクセス可能
+     * http://localhost:8080/swagger-ui/ でドキュメントにアクセス可能<br>
+     * http://localhost:8080/v2/api-docsでjson出力<br>
+     * 参考: https://qiita.com/mitsuya/items/16b0284372b3f8e340af
      * @return
      */
     @Bean
